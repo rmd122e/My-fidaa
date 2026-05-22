@@ -11,6 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #ffeef2;
+    overflow: hidden; /* Mencegah halaman nge-scroll pas tombol lari */
 }
 
 .container {
@@ -66,7 +67,7 @@ p {
 /* SUSUNAN TOMBOL PILIHAN (ROW/KIRI KANAN) */
 .btn-group-row {
     display: flex;
-    gap: 12px; /* Jarak antar tombol */
+    gap: 12px;
     justify-content: center;
 }
 
@@ -78,11 +79,17 @@ p {
     border-radius: 12px;
     font-size: 0.95rem;
     cursor: pointer;
-    flex: 1; /* Membagi ukuran tombol sama rata */
+    flex: 1;
 }
 
 /* WARNA TOMBOL KEDUA JIKA INGIN BEDA WARNA */
 .btn-gray {
     background-color: #e0e0e0;
     color: #333;
+}
+
+/* EFEK TOMBOL KABUR */
+.btn-kabur {
+    transition: all 0.15s ease-out;
+    z-index: 999;
 }
