@@ -49,50 +49,48 @@ function resetPage() {
     nextPage(0);
 }
 
-// Logika Interaktif Tombol Menghindar
+// Logika Interaktif Tombol Menghindar (Aman untuk GitHub Pages & Chrome)
 const tombolKabur = document.querySelectorAll('.btn-kabur');
 
 tombolKabur.forEach(tombol => {
     function lari() {
-        // Ambil ukuran asli tombol (supaya ukurannya tidak mengecil/berubah saat pindah)
+        // 1. Kunci ukuran tombol agar tidak mengecil saat berubah jadi fixed
         const lebarAsli = tombol.offsetWidth;
         tombol.style.width = `${lebarAsli}px`;
         
-        // Ambil info posisi tombol saat ini di layar
-        const posisiSekarang = tombol.getBoundingClientRect();
+        // 2. Ambil ukuran layar browser Fida saat itu
+        const lebarLayar = window.innerWidth;
+        const tinggiLayar = window.innerHeight;
         
-        // Jarak lompatan diatur dekat dulu (maksimal bergeser sejauh 60 sampai 120 piksel dari posisi awal)
-        const jarakMin = 60;
-        const jarakMaks = 120;
+        // 3. Cari titik tengah layar (lokasi kartu web kamu berada)
+        const tengahX = lebarLayar / 2;
+        const tengahY = tinggiLayar / 2;
         
-        // Acak arah (bisa minus ke kiri/atas, bisa plus ke kanan/bawah)
-        const arahX = Math.random() < 0.5 ? -1 : 1;
-        const arahY = Math.random() < 0.5 ? -1 : 1;
+        // 4. Batasi jarak lari tombol agar hanya bergeser sedikit di sekitar area kartu
+        // Jarak acak berkisar antara -80px sampai +80px dari titik tengah layar
+        const rentangLari = 80; 
+        const acakX = tengahX + (Math.random() * (rentangLari * 2) - rentangLari) - (lebarAsli / 2);
+        const acakY = tengahY + (Math.random() * (rentangLari * 2) - rentangLari) - (tombol.offsetHeight / 2);
         
-        // Hitung koordinat tujuan baru berdasar posisi sekarang ditambah jarak acak yang dekat
-        let acakX = posisiSekarang.left + (arahX * (Math.random() * (jarakMaks - jarakMin) + jarakMin));
-        let acakY = posisiSekarang.top + (arahY * (Math.random() * (jarakMaks - jarakMin) + jarakMin));
+        // 5. Batas aman final agar tombol mutlak tidak bablas keluar dari tepi layar HP/Laptop
+        const batasMaksX = lebarLayar - lebarAsli - 20;
+        const batasMaksY = tinggiLayar - tombol.offsetHeight - 20;
         
-        // Batas aman layar agar tidak keluar jendela browser luar
-        const batasMaksX = window.innerWidth - lebarAsli - 20;
-        const batasMaksY = window.innerHeight - tombol.offsetHeight - 20;
+        const koordinatX = Math.max(20, Math.min(acakX, batasMaksX));
+        const koordinatY = Math.max(20, Math.min(acakY, batasMaksY));
         
-        // Validasi posisi agar tetap berada di area dalam layar visual gawai
-        acakX = Math.max(20, Math.min(acakX, batasMaksX));
-        acakY = Math.max(20, Math.min(acakY, batasMaksY));
-        
-        // Terapkan perubahan posisi secara dinamis
+        // 6. Eksekusi perpindahan posisi secara paksa dan instan
         tombol.style.position = 'fixed';
-        tombol.style.left = `${acakX}px`;
-        tombol.style.top = `${acakY}px`;
+        tombol.style.left = `${koordinatX}px`;
+        tombol.style.top = `${koordinatY}px`;
     }
 
-    // Untuk Laptop/PC (Kursor mendekat)
+    // Trigger saat kursor PC/Laptop mendekati tombol
     tombol.addEventListener('mouseover', lari);
     
-    // Untuk HP (Layar disentuh)
+    // Trigger saat layar HP/Smartphone disentuh oleh Fida
     tombol.addEventListener('touchstart', function(e) {
-        e.preventDefault(); 
+        e.preventDefault(); // Menghentikan aksi default klik bawaan browser Chrome
         lari();
     });
 });
