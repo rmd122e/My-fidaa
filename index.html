@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Fidaaaaa ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div id="page-0" class="card dynamic-page active">
+            <h1 style="margin-top: 20px;">Pencet iki</h1>
+            <button class="btn-next" onclick="nextPage(1)">👉iki👈</button>
+        </div>
+        
+        <div id="page-1" class="card dynamic-page">
+            <img src="hello.gif" alt="GIF">
+            <h1>Halooooo Nihaaaaaa</h1>
+            <button class="btn-next" onclick="nextPage(2)">Tekan ➡️</button>
+        </div>
+
+        <div id="page-2" class="card dynamic-page">
+            <img src="malu.gif" alt="GIF">
+            <h1>Gimana Kabar Kmu? Sehat?</h1>
+            <div class="btn-group-row">
+                <button class="btn-choice" onclick="nextPage(3)">Iya/Sehat 😊</button>
+                <button class="btn-choice btn-gray" onclick="showSakitPage()">Tidak 😢</button>
+            </div>
+        </div>
+
+        <div id="page-sakit" class="card dynamic-page">
+            <img src="anu.gif" alt="GIF">
+            <h1 style="color: #ff4d6d;">Kmu Kenapa? Cerita Dong 🥺</h1>
+            <p>Aku siap dengerin kok...</p>
+            <button class="btn-next" onclick="nextPage(3)">Udah cerita, lanjut ➡️</button>
+        </div>
+
+        <div id="page-3" class="card dynamic-page">
+            <img src="hehe.gif" alt="GIF">
+            <h1>HEHEHEHEHEHEHE</h1>
+            <button class="btn-next" onclick="nextPage(4)">Lanjut lagi ➡️</button>
+        </div>
+
+        <div id="page-4" class="card dynamic-page">
+            <img src="makan.gif" alt="GIF">
+            <h1>Kmu Udah Makan?</h1>
+            <div class="btn-group-row">
+                <button class="btn-choice" onclick="nextPage(5)">Udah Dong😁</button>
+                <button class="btn-choice btn-gray" onclick="showReminderPage()">Beyum😔</button>
+            </div>
+        </div>
+
+        <div id="page-reminder" class="card dynamic-page">
+            <img src="sedih.gif" alt="GIF">
+            <h1 style="color: #ff4d6d;">jangan lupa makan!!</h1>
+            <p>Makan gih biar gak sakit, okey?</p>
+            <button class="btn-next" onclick="nextPage(5)">Iyaaa iyaaa ➡️</button>
+        </div>
+
+        <div id="page-5" class="card dynamic-page">
+            <img src="makan.gif" alt="GIF">
+            <h1>Pasti Maem seblak barusan</h1>
+            <button class="btn-next" onclick="nextPage(6)">Hehe ➡️</button>
+        </div>
+
+        <div id="page-6" class="card dynamic-page">
+            <img src="hehe.gif" alt="GIF">
+            <h1>HEHEHEEHEHEHEH</h1>
+            <button class="btn-next" onclick="nextPage(7)">Next ➡️</button>
+        </div>
+
+        <div id="page-7" class="card dynamic-page">
+            <img src="haha.gif" alt="GIF">
+            <h1>Aku Gabut Njirrr Part 2</h1>
+            <button class="btn-next" onclick="nextPage(8)">Terakhir nih ➡️</button>
+        </div>
+
+        <div id="page-8" class="card dynamic-page">
+            <img src="lope.gif" alt="GIF">
+            <h1>Love YOU 🥰</h1>
+            <button class="btn-next" onclick="nextPage(9)">HEHE 😭</button>
+        </div>
+
+        <div id="page-9" class="card dynamic-page">
+            <img src="1.gif" alt="GIF">
+            <h1>kmu ?</h1>
+            <button class="btn-next" onclick="nextPage(10)">Mau tau? Pencet➡️</button>
+        </div>
+
+        <div id="page-10" class="card dynamic-page">
+            <img src="malu.gif" alt="GIF">
+            <h1>mau?</h1>
+            <div class="btn-group-row">
+                <button class="btn-choice" onclick="nextPage(11)">Mau 😊</button>
+                <button class="btn-choice btn-gray" onclick="nextPage(11)">Gak 😔</button>
+            </div>
+        </div>
+
+        <div id="page-11" class="card dynamic-page">
+            <img src="senang.gif" alt="GIF">
+            <h1>ga?</h1>
+            <div class="btn-group-row">
+                <button class="btn-choice btn-gray" onclick="nextPage(12)">Nggak lah😔</button>
+                <button class="btn-choice" onclick="nextPage(12)">Iyaa 🥰</button>
+            </div>
+        </div>
+
+        <div id="page-12" class="card dynamic-page">
+            <img src="malu.gif" alt="GIF">
+            <h1>jadi?</h1>
+            <button class="btn-next" onclick="nextPage(13)">Jadi apa? 🤔</button>
+        </div>
+
+        <div id="page-13" class="card dynamic-page">
+            <img src="sedih.gif" alt="GIF">
+            <h1>jadi apaa hayooo 😭🥺</h1>
+            <button class="btn-next" onclick="nextPage(14)">Pencet ini</button>
+        </div>
+
+        <div id="page-14" class="card dynamic-page">
+            <img src="sedih.gif" alt="GIF">
+            <h1>enggaa enggaa 😭😭</h1>
+            <p style="font-style: italic;">ehehehehe😭</p>
+            <button class="btn-next" onclick="nextPage(15)">😭😭</button>
+        </div>
+
+        <div id="page-15" class="card dynamic-page">
+            <img src="sedih.gif" alt="GIF">
+            <h1>enggaa enggaa jadi😭😭</h1>
+            <p style="font-style:;">😭😭😭😭</p>
+            <button class="btn-next" onclick="nextPage(0)">Selesai byeee😭😭😭</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

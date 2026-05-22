@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffeef2;
+}
+
+.container {
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    display: none;
+}
+
+.card.active {
+    display: block;
+}
+
+.card img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+h1 {
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+    color: #ff4d6d;
+}
+
+p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* TOMBOL UTAMA */
+.btn-next {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* SUSUNAN TOMBOL PILIHAN (ROW/KIRI KANAN) */
+.btn-group-row {
+    display: flex;
+    gap: 12px; /* Jarak antar tombol */
+    justify-content: center;
+}
+
+.btn-choice {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    flex: 1; /* Membagi ukuran tombol sama rata */
+}
+
+/* WARNA TOMBOL KEDUA JIKA INGIN BEDA WARNA */
+.btn-gray {
+    background-color: #e0e0e0;
+    color: #333;
+}
